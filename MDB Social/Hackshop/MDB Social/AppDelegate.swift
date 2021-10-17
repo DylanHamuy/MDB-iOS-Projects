@@ -1,18 +1,21 @@
 //
 //  AppDelegate.swift
-//  Pokedex
+//  MDB Social No Starter
 //
-//  Created by Michael Lin on 2/18/21.
+//  Created by Michael Lin on 10/9/21.
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 

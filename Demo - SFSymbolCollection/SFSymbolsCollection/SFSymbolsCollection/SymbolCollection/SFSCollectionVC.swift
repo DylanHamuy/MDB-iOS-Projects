@@ -26,7 +26,6 @@ class SFSCollectionVC: UIViewController {
         view.addSubview(collectionView)
         collectionView.frame = view.bounds.inset(by: UIEdgeInsets(top: 88, left: 30, bottom: 0, right: 30))
         collectionView.backgroundColor = .clear
-        
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
         
