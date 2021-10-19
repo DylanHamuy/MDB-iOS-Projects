@@ -415,7 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MDB Social No Starter/Info.plist";
+				INFOPLIST_FILE = "MDB Social/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MDB Social";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -443,7 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MDB Social No Starter/Info.plist";
+				INFOPLIST_FILE = "MDB Social/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MDB Social";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

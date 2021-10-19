@@ -40,7 +40,27 @@ class SOCAuthManager {
     func signIn(withEmail email: String, password: String,
                 completion: ((Result<SOCUser, SignInErrors>)->Void)?) {
         
-        /* TODO: Hackshop */
+        auth.signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?)-> Void in
+            if let error = error{
+                let nsError = error as NSError
+                let errorCode = FirebaseAuth.AuthErrorCode(rawValue: nsError.code)
+                switch errorCode{
+                case .wrongPassword:
+                    completion?(.failure(.wrongPassword))
+                case .userNotFound:
+                    completion?(.failure(.userNotFound))
+                default:
+                    completion?(.failure(.unspecified))
+                }
+                return
+            }
+            guard let authResult = authResult else {
+                completion?(.failure(.internalError))
+                return
+            }
+            self.linkUser(withuid: authResult.user.uid, completion: completion)
+
+        })
     }
     
     /* TODO: Firebase sign up handler, add user to firestore */
