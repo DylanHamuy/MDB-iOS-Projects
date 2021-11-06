@@ -32,6 +32,9 @@
 		1AFB4D86271C22FD006621E9 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4D85271C22FD006621E9 /* FeedVC.swift */; };
 		1AFB4D88271C2327006621E9 /* FeedNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4D87271C2327006621E9 /* FeedNavigationVC.swift */; };
 		1AFB4D8A271C23D9006621E9 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4D89271C23D9006621E9 /* Auth.storyboard */; };
+		FCBECE7C27339EA8002B05B5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBECE7B27339EA8002B05B5 /* SignUpViewController.swift */; };
+		FCBECE7E273471DF002B05B5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBECE7D273471DF002B05B5 /* Utilities.swift */; };
+		FCBECE8127360937002B05B5 /* FeedVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBECE8027360937002B05B5 /* FeedVCCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		1AFB4D85271C22FD006621E9 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		1AFB4D87271C2327006621E9 /* FeedNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNavigationVC.swift; sourceTree = "<group>"; };
 		1AFB4D89271C23D9006621E9 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		FCBECE7B27339EA8002B05B5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FCBECE7D273471DF002B05B5 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		FCBECE8027360937002B05B5 /* FeedVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVCCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		1ADC5844271249AB0067693B /* MDB Social */ = {
 			isa = PBXGroup;
 			children = (
+				FCBECE7F273471FD002B05B5 /* Helpers */,
 				1AFB4D84271C22E8006621E9 /* Feed */,
 				1ADC587C2712559C0067693B /* Extensions */,
 				1ADC5873271255130067693B /* OnBoarding */,
@@ -144,6 +151,7 @@
 				1ADC5874271255460067693B /* HorizontalActionLabel.swift */,
 				1ADC5876271255460067693B /* LoadingButton.swift */,
 				1ADC5875271255460067693B /* SigninVC.swift */,
+				FCBECE7B27339EA8002B05B5 /* SignUpViewController.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -162,9 +170,18 @@
 			isa = PBXGroup;
 			children = (
 				1AFB4D85271C22FD006621E9 /* FeedVC.swift */,
+				FCBECE8027360937002B05B5 /* FeedVCCell.swift */,
 				1AFB4D87271C2327006621E9 /* FeedNavigationVC.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		FCBECE7F273471FD002B05B5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FCBECE7D273471DF002B05B5 /* Utilities.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +276,11 @@
 				1AFB4D88271C2327006621E9 /* FeedNavigationVC.swift in Sources */,
 				1ADC586E271253E90067693B /* SOCDBRequest.swift in Sources */,
 				1ADC5879271255460067693B /* SigninVC.swift in Sources */,
+				FCBECE8127360937002B05B5 /* FeedVCCell.swift in Sources */,
 				1ADC586A271250500067693B /* SOCEvent.swift in Sources */,
 				1AFB4D86271C22FD006621E9 /* FeedVC.swift in Sources */,
+				FCBECE7E273471DF002B05B5 /* Utilities.swift in Sources */,
+				FCBECE7C27339EA8002B05B5 /* SignUpViewController.swift in Sources */,
 				1ADC5846271249AB0067693B /* AppDelegate.swift in Sources */,
 				1ADC5881271255DC0067693B /* UIColor+Hex.swift in Sources */,
 				1ADC5878271255460067693B /* HorizontalActionLabel.swift in Sources */,
@@ -415,7 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MDB Social No Starter/Info.plist";
+				INFOPLIST_FILE = "MDB Social/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MDB Social";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -443,7 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MDB Social No Starter/Info.plist";
+				INFOPLIST_FILE = "MDB Social/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MDB Social";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

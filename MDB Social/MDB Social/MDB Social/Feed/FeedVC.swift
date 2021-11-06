@@ -6,26 +6,42 @@
 //
 
 import UIKit
+import SwiftUI
 
 class FeedVC: UIViewController {
     
-    private let signOutButton: UIButton = {
-        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        btn.backgroundColor = .primary
-        btn.setImage(UIImage(systemName: "xmark"), for: .normal)
-        let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 30, weight: .medium))
-        btn.setPreferredSymbolConfiguration(config, forImageIn: .normal)
-        btn.tintColor = .white
-        btn.layer.cornerRadius = 50
-        
-        return btn
-    }()
+    var tableView : UITableView!
+    var selectedEvent : SOCEvent!
+    var allEvents : [SOCEvent]! = []{
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    
+
     
     override func viewDidLoad() {
-        view.addSubview(signOutButton)
+        super.viewDidLoad()
         
-        signOutButton.center = view.center
-        signOutButton.addTarget(self, action: #selector(didTapSignOut(_:)), for: .touchUpInside)
+        FIRDatabaseRequest.shared.linkEvents()
+        //Notification Center
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUpdate),
+            name: Notification.Name("eventsUpdated"), object: nil)
+    
+        //Sign out button
+        let backButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didTapSignOut(_:)))
+        backButton.tintColor = .blue
+        self.navigationItem.leftBarButtonItem = backButton
+
+        
+        tableView = UITableView(frame: CGRect(x: 10, y: 88, width: view.frame.width-20, height: view.frame.height-88))
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(FeedVCCell.self, forCellReuseIdentifier: "eventCell")
+        view.addSubview(tableView)
+        
+
     }
     
     @objc func didTapSignOut(_ sender: UIButton) {
@@ -39,4 +55,34 @@ class FeedVC: UIViewController {
             UIView.transition(with: window, duration: duration, options: options, animations: {}, completion: nil)
         }
     }
+    @objc func didReceiveUpdate(){
+        let updatedEvents = FIRDatabaseRequest.shared.allEvents
+        allEvents = updatedEvents
+    }
+    
+}
+
+extension FeedVC: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allEvents?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! FeedVCCell
+        let size = CGSize(width: tableView.frame.width, height: height(for: indexPath))
+        cell.initCellFrom(size: size)
+        cell.selectionStyle = .none
+        cell.event = allEvents?[indexPath.row]
+        return cell
+    }
+    
+    func height(for index: IndexPath) -> CGFloat {
+        return 250
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return height(for: indexPath)
+    }
+    
 }

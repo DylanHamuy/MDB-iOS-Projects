@@ -25,6 +25,17 @@ class SOCAuthManager {
         case unspecified
     }
     
+    enum SignUpErrors: Error {
+        case emailAlreadyInUse
+        case invalidEmail
+        case weakPassword
+        case operationNotAllowed
+        case unspecified
+        case internalError
+        case errorFetchingUserDoc
+        case errorDecodingUserDoc
+    }
+    
     let db = Firestore.firestore()
     
     var currentUser: SOCUser?
@@ -68,6 +79,42 @@ class SOCAuthManager {
     
     /* TODO: Firebase sign up handler, add user to firestore */
     
+    func signUp(withEmail email: String, password: String, fullName: String, username: String,
+                completion: ((Result<SOCUser, SignUpErrors>)->Void)?) {
+        
+        auth.createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            if let error = error {
+                let nsError = error as NSError
+                let errorCode = FirebaseAuth.AuthErrorCode(rawValue: nsError.code)
+                
+                switch errorCode {
+                case .emailAlreadyInUse:
+                    completion?(.failure(.emailAlreadyInUse))
+                case .invalidEmail:
+                    completion?(.failure(.invalidEmail))
+                case .weakPassword:
+                    completion?(.failure(.weakPassword))
+                case .operationNotAllowed:
+                    completion?(.failure(.operationNotAllowed))
+                default:
+                    completion?(.failure(.unspecified))
+                }
+                return
+            }
+            guard let authResult = authResult else {
+                completion?(.failure(.internalError))
+                return
+            }
+            let currentUser = SOCUser(uid: authResult.user.uid, username: username, email: email, fullname: fullName, savedEvents: [])
+            
+            
+            FIRDatabaseRequest.shared.setUser(currentUser, completion: nil)
+            
+            self?.linkUserSignUp(withuid: authResult.user.uid, completion: completion)
+        }
+    }
+    
+    
     func isSignedIn() -> Bool {
         return auth.currentUser != nil
     }
@@ -82,6 +129,23 @@ class SOCAuthManager {
     
     private func linkUser(withuid uid: String,
                           completion: ((Result<SOCUser, SignInErrors>)->Void)?) {
+        
+        userListener = db.collection("users").document(uid).addSnapshotListener { [weak self] docSnapshot, error in
+            guard let document = docSnapshot else {
+                completion?(.failure(.errorFetchingUserDoc))
+                return
+            }
+            guard let user = try? document.data(as: SOCUser.self) else {
+                completion?(.failure(.errorDecodingUserDoc))
+                return
+            }
+            
+            self?.currentUser = user
+            completion?(.success(user))
+        }
+    }
+    private func linkUserSignUp(withuid uid: String,
+                          completion: ((Result<SOCUser, SignUpErrors>)->Void)?) {
         
         userListener = db.collection("users").document(uid).addSnapshotListener { [weak self] docSnapshot, error in
             guard let document = docSnapshot else {
