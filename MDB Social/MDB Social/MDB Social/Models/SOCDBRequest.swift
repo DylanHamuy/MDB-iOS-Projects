@@ -59,9 +59,5 @@ class FIRDatabaseRequest {
     private func unlinkEvents() {
         eventListener?.remove()
     }
-    
-    /* TODO: Events getter */
-    //read through read data up to order and limit data
-    //read in info from firebase and put into array format like pokemon
 
 }

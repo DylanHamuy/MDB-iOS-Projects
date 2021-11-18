@@ -12,7 +12,7 @@ class FeedVCCell: UITableViewCell {
         didSet{
             if let event = event {
                 nameLabel.text = event.name
-                descriptionLabel.text = event.description
+                descriptionLabel.text = event.creator
                 numLabel.text = "\(event.rsvpUsers.count)"
                 urlString = event.photoURL
             }

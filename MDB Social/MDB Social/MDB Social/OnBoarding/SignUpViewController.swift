@@ -33,6 +33,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         setUpElements()
         
     }
@@ -92,11 +94,9 @@ class SignUpViewController: UIViewController {
         if  !validateEmail(enteredEmail: cleanedEmail){
             return "Enter correct email format"
         }
-        
-        
         return nil
     }
-    
+
 
     
     @IBAction func signUpTapped(_ sender: Any) {
@@ -150,26 +150,13 @@ class SignUpViewController: UIViewController {
     }
     
     func showError(_ message:String){
-        errorLabel.text = message
-        errorLabel.alpha = 1
+        showErrorBanner(withTitle: message)
     }
     
     func transitionToFeedVC(){
         performSegue(withIdentifier: "goToFeedVC", sender: self)
-        //OR USE THIS
-//        guard let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first else { return }
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-//        window.rootViewController = vc
-//        let options: UIView.AnimationOptions = .transitionCrossDissolve
-//        let duration: TimeInterval = 0.3
-//        UIView.transition(with: window, duration: duration, options: options, animations: {}, completion: nil)
     }
-    // HAVE PREPARE FUNC IF NEEDED
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToFeedVC" {
-//            guard let vc = segue.destination as? FeedVC else { return }
-//        }
-//    }
+
     private func showErrorBanner(withTitle title: String, subtitle: String? = nil) {
         guard bannerQueue.numberOfBanners == 0 else { return }
         let banner = FloatingNotificationBanner(title: title, subtitle: subtitle,

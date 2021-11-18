@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bQZ-7x-Nh5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -35,8 +36,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bL8-mz-aTh">
-                                <rect key="frame" x="40" y="84" width="334" height="540"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bL8-mz-aTh">
+                                <rect key="frame" x="40" y="84" width="334" height="470"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pxX-H3-NIG">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -47,7 +48,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9rG-QE-DQp">
-                                        <rect key="frame" x="0.0" y="70" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="60" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="bO8-jJ-bfI"/>
                                         </constraints>
@@ -55,7 +56,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tMK-9C-0eW">
-                                        <rect key="frame" x="0.0" y="140" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="120" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="O4o-jg-GLM"/>
                                         </constraints>
@@ -63,7 +64,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="arc-D5-Pro">
-                                        <rect key="frame" x="0.0" y="210" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="180" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="UOM-fZ-UGF"/>
                                         </constraints>
@@ -71,7 +72,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wCM-TF-saJ">
-                                        <rect key="frame" x="0.0" y="280" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="240" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="XVF-2l-GZj"/>
                                         </constraints>
@@ -79,7 +80,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tlt-Rg-0cv">
-                                        <rect key="frame" x="0.0" y="350" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="300" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="J1Z-Fb-boc"/>
                                         </constraints>
@@ -87,19 +88,21 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yoe-Zd-Jm8">
-                                        <rect key="frame" x="0.0" y="420" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="360" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="UrN-58-QZo"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="vUV-iq-BpB"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="signUpTapped:" destination="Kve-zf-ega" eventType="touchUpInside" id="h1O-0n-IKZ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiv-sO-CIx">
-                                        <rect key="frame" x="0.0" y="490" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="420" width="334" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gId-sS-EI2"/>
                                         </constraints>
@@ -108,12 +111,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="Yoe-Zd-Jm8" firstAttribute="height" secondItem="pxX-H3-NIG" secondAttribute="height" id="Ifs-Dl-XlO"/>
-                                    <constraint firstItem="wCM-TF-saJ" firstAttribute="height" secondItem="pxX-H3-NIG" secondAttribute="height" id="Oeb-NL-egv"/>
-                                    <constraint firstItem="tMK-9C-0eW" firstAttribute="height" secondItem="pxX-H3-NIG" secondAttribute="height" id="Th2-if-Xz3"/>
-                                    <constraint firstItem="9rG-QE-DQp" firstAttribute="height" secondItem="pxX-H3-NIG" secondAttribute="height" id="gwT-gK-3ga"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5fa-NK-zw2"/>

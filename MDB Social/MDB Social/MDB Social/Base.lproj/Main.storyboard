@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JFw-Ip-UdR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -35,10 +36,46 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="eyx-8C-HB1"/>
+                    <connections>
+                        <segue destination="eJQ-gL-Hn1" kind="show" identifier="toDetails" id="HoU-gT-bKp"/>
+                        <segue destination="bqe-Gy-74E" kind="show" identifier="toCreateVC" id="ibl-KC-dS3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X00-Lt-7g7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598.55072463768124" y="83.705357142857139"/>
+            <point key="canvasLocation" x="643" y="84"/>
+        </scene>
+        <!--Create View Controller-->
+        <scene sceneID="SNi-Gb-Tcq">
+            <objects>
+                <viewController id="bqe-Gy-74E" customClass="CreateViewController" customModule="MDB_Social" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sbc-sN-reD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vjw-0k-gvl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TNG-dz-vzb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mKC-Uu-dsL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1638" y="509"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="y3z-80-ngX">
+            <objects>
+                <viewController id="eJQ-gL-Hn1" customClass="DetailViewController" customModule="MDB_Social" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zt6-hX-K4L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wzE-qi-uFX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kh3-Y5-atJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSZ-7f-ias" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1638" y="-168"/>
         </scene>
     </scenes>
     <resources>

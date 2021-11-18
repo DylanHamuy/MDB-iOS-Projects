@@ -18,9 +18,6 @@ class FeedVC: UIViewController {
         }
     }
     
-    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +30,10 @@ class FeedVC: UIViewController {
         let backButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didTapSignOut(_:)))
         backButton.tintColor = .blue
         self.navigationItem.leftBarButtonItem = backButton
+        
+        let createButton = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(didTapCreate(_:)))
+        createButton.tintColor = .blue
+        self.navigationItem.rightBarButtonItem = createButton
 
         
         tableView = UITableView(frame: CGRect(x: 10, y: 88, width: view.frame.width-20, height: view.frame.height-88))
@@ -44,6 +45,11 @@ class FeedVC: UIViewController {
 
     }
     
+    @objc func didTapCreate (_ sender: UIButton){
+        performSegue(withIdentifier: "toCreateVC", sender: nil)
+    }
+    
+
     @objc func didTapSignOut(_ sender: UIButton) {
         SOCAuthManager.shared.signOut {
             guard let window = UIApplication.shared
@@ -56,10 +62,19 @@ class FeedVC: UIViewController {
         }
     }
     @objc func didReceiveUpdate(){
-        let updatedEvents = FIRDatabaseRequest.shared.allEvents
+        var updatedEvents = FIRDatabaseRequest.shared.allEvents
+        updatedEvents = updatedEvents.sorted(by: {
+            $0.startDate.compare($1.startDate) == .orderedDescending
+        })
         allEvents = updatedEvents
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            let resultVC = segue.destination as! DetailViewController
+            resultVC.event = selectedEvent
+        }
+    }
 }
 
 extension FeedVC: UITableViewDelegate, UITableViewDataSource{
@@ -85,4 +100,12 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource{
         return height(for: indexPath)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedEvent = allEvents[indexPath.row]
+        // waiting for her vc
+        performSegue(withIdentifier: "toDetails", sender: self)
+    }
+    
 }
+
+

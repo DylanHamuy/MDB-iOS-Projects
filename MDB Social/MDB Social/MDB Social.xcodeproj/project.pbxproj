@@ -32,6 +32,8 @@
 		1AFB4D86271C22FD006621E9 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4D85271C22FD006621E9 /* FeedVC.swift */; };
 		1AFB4D88271C2327006621E9 /* FeedNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB4D87271C2327006621E9 /* FeedNavigationVC.swift */; };
 		1AFB4D8A271C23D9006621E9 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFB4D89271C23D9006621E9 /* Auth.storyboard */; };
+		FC5FBBD027408D410055FE3B /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5FBBCF27408D410055FE3B /* CreateViewController.swift */; };
+		FC5FBBD2274095A40055FE3B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5FBBD1274095A40055FE3B /* DetailViewController.swift */; };
 		FCBECE7C27339EA8002B05B5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBECE7B27339EA8002B05B5 /* SignUpViewController.swift */; };
 		FCBECE7E273471DF002B05B5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBECE7D273471DF002B05B5 /* Utilities.swift */; };
 		FCBECE8127360937002B05B5 /* FeedVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBECE8027360937002B05B5 /* FeedVCCell.swift */; };
@@ -60,6 +62,8 @@
 		1AFB4D85271C22FD006621E9 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		1AFB4D87271C2327006621E9 /* FeedNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNavigationVC.swift; sourceTree = "<group>"; };
 		1AFB4D89271C23D9006621E9 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		FC5FBBCF27408D410055FE3B /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		FC5FBBD1274095A40055FE3B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FCBECE7B27339EA8002B05B5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FCBECE7D273471DF002B05B5 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FCBECE8027360937002B05B5 /* FeedVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVCCell.swift; sourceTree = "<group>"; };
@@ -100,7 +104,7 @@
 		1ADC5844271249AB0067693B /* MDB Social */ = {
 			isa = PBXGroup;
 			children = (
-				FCBECE7F273471FD002B05B5 /* Helpers */,
+				FC5FBBCE27408C020055FE3B /* Events */,
 				1AFB4D84271C22E8006621E9 /* Feed */,
 				1ADC587C2712559C0067693B /* Extensions */,
 				1ADC5873271255130067693B /* OnBoarding */,
@@ -159,6 +163,7 @@
 		1ADC587C2712559C0067693B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FCBECE7D273471DF002B05B5 /* Utilities.swift */,
 				1ADC587D271255DC0067693B /* UIColor+ColorScheme.swift */,
 				1ADC587E271255DC0067693B /* UIColor+Hex.swift */,
 				1ADC587F271255DC0067693B /* UIViewController+HideKeyboard.swift */,
@@ -176,12 +181,13 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
-		FCBECE7F273471FD002B05B5 /* Helpers */ = {
+		FC5FBBCE27408C020055FE3B /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				FCBECE7D273471DF002B05B5 /* Utilities.swift */,
+				FC5FBBCF27408D410055FE3B /* CreateViewController.swift */,
+				FC5FBBD1274095A40055FE3B /* DetailViewController.swift */,
 			);
-			path = Helpers;
+			path = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +281,9 @@
 				1ADC5880271255DC0067693B /* UIColor+ColorScheme.swift in Sources */,
 				1AFB4D88271C2327006621E9 /* FeedNavigationVC.swift in Sources */,
 				1ADC586E271253E90067693B /* SOCDBRequest.swift in Sources */,
+				FC5FBBD2274095A40055FE3B /* DetailViewController.swift in Sources */,
 				1ADC5879271255460067693B /* SigninVC.swift in Sources */,
+				FC5FBBD027408D410055FE3B /* CreateViewController.swift in Sources */,
 				FCBECE8127360937002B05B5 /* FeedVCCell.swift in Sources */,
 				1ADC586A271250500067693B /* SOCEvent.swift in Sources */,
 				1AFB4D86271C22FD006621E9 /* FeedVC.swift in Sources */,
@@ -362,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -417,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -434,6 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T84339J8C7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MDB Social/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MDB Social";
@@ -447,7 +456,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mdb.social;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.social;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -462,6 +471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T84339J8C7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MDB Social/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MDB Social";
@@ -475,7 +485,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.mdb.social;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dylan.social;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
